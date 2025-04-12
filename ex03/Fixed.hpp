@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthamir <mthamir@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthamir <mthamir@student.42.fr>            #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 12:54:19 by mthamir           #+#    #+#             */
-/*   Updated: 2025/04/11 17:43:38 by mthamir          ###   ########.fr       */
+/*   Created: 2025-04-12 10:56:53 by mthamir           #+#    #+#             */
+/*   Updated: 2025-04-12 10:56:53 by mthamir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,29 @@ public:
     Fixed(const Fixed& other);
     Fixed(const int integer);
 	Fixed(const float floatingPoint);
-    Fixed&  operator=(const Fixed& other);
     ~Fixed();
+    
+	Fixed&	operator=(const Fixed& other);
+    bool	operator>(const Fixed& other);
+    bool	operator<(const Fixed& other);
+    bool	operator>=(const Fixed& other);
+    bool	operator<=(const Fixed& other);
+    bool	operator==(const Fixed& other);
+    bool	operator!=(const Fixed& other);
+    Fixed	operator+(const Fixed& other);
+    Fixed	operator-(const Fixed& other);
+    Fixed	operator*(const Fixed& other);
+    Fixed	operator/(const Fixed& other);
+    Fixed&	operator++();
+    Fixed	operator++(int);
 
     int     getRawBits(void) const;
     void    setRawBits(int const raw);
     float   toFloat(void) const;
     int     toInt(void) const;
+	static const Fixed&	max(const Fixed& a, const Fixed& b);
 };
-std::ostream& operator<<(std::ostream& strm, const Fixed& fixPoint);
 
+std::ostream& operator<<(std::ostream& strm, const Fixed& fixPoint);
 
 #endif

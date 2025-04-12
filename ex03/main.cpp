@@ -3,26 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthamir <mthamir@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mthamir <mthamir@student.42.fr>            #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 17:43:51 by mthamir           #+#    #+#             */
-/*   Updated: 2025/04/11 18:43:12 by mthamir          ###   ########.fr       */
+/*   Created: 2025-04-12 10:56:56 by mthamir           #+#    #+#             */
+/*   Updated: 2025-04-12 10:56:56 by mthamir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << a << std::endl;
-	a.setRawBits(0);
-	std::cout << b/a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a - b << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
+int main(){
+    Point  a(1,2);
+    Point  b(4,6);
+    Point  c(7,2);
+    Point  p(8,4);
+    if (bsp(a, b, c, p))
+        std::cout << "it works \n";
+    else
+        std::cout << "fails\n";
 }
