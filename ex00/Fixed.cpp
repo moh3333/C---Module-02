@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mthamir <mthamir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 17:43:17 by mthamir           #+#    #+#             */
-/*   Updated: 2025/04/11 18:16:40 by mthamir          ###   ########.fr       */
+/*   Created: 2025/04/11 13:03:13 by mthamir           #+#    #+#             */
+/*   Updated: 2025/04/11 13:28:27 by mthamir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "Fixed.hpp"
 
-const int Fixed::FractBits = 8;
+const int FractBits = 8;
 
 Fixed::Fixed():FixedPInt(0){
     std::cout << "Default constructor called" << std::endl;
@@ -22,16 +21,6 @@ Fixed::Fixed():FixedPInt(0){
 Fixed::Fixed(const Fixed& other){
     std::cout << "Copy constructor called" << std::endl;
 	*this = other;
-}
-
-Fixed::Fixed(const int integer):FixedPInt(integer << Fixed::FractBits){
-	std::cout << "Int constructor called" << std::endl;
-}
-
-
-Fixed::Fixed(const float floatingPoint){
-	std::cout << "Float constructor called" << std::endl;
-	this->FixedPInt = roundf((floatingPoint * (1 << Fixed::FractBits)));
 }
 
 Fixed& Fixed::operator=(const Fixed& other){
@@ -45,23 +34,11 @@ Fixed::~Fixed(){
     std::cout << "Destructor called" << std::endl;
 }
 
-int Fixed::getRawBits(void) const {
+int Fixed::getRawBits(void) const{
+    std::cout << "getRawBits member function called" <<  std::endl;
     return (FixedPInt);
 }
 
 void Fixed::setRawBits(int const raw){
     FixedPInt = raw;
-}
-
-float	Fixed::toFloat(void) const{
-	return (FixedPInt / (float)(1 << Fixed::FractBits));
-}
-
-int	Fixed::toInt(void) const{
-	return (FixedPInt  >> Fixed::FractBits);
-}
-
-std::ostream& operator<<(std::ostream& strm, const Fixed& fixPoint){
-	strm << fixPoint.toFloat();
-	return (strm);
 }
