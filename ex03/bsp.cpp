@@ -12,9 +12,11 @@
 
 #include "Point.hpp"
 
-bool bsp(Point const a, Point const b, Point const c, Point const point){
+bool bsp(Point const& a, Point const& b, Point const c, Point const& point){
+    
     Fixed B (Point::DeterminantTwoByTwo(a, b, point));
     Fixed S (Point::DeterminantTwoByTwo(b, c, point));
     Fixed P (Point::DeterminantTwoByTwo(c, a, point));
+
     return (Point::Inside(B, S, P));
 }

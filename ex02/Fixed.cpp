@@ -14,35 +14,26 @@
 
 const int Fixed::FractBits = 8;
 
-Fixed::Fixed():FixedPInt(0){
-    // std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed():FixedPInt(0){}
 
 Fixed::Fixed(const Fixed& other){
-    // std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
-Fixed::Fixed(const int integer):FixedPInt(integer << Fixed::FractBits){
-	// std::cout << "Int constructor called" << std::endl;
-}
+Fixed::Fixed(const int integer):FixedPInt(integer << Fixed::FractBits){}
 
 
 Fixed::Fixed(const float floatingPoint){
-	// std::cout << "Float constructor called" << std::endl;
 	this->FixedPInt = roundf((floatingPoint * (1 << Fixed::FractBits)));
 }
 
 Fixed& Fixed::operator=(const Fixed& other){
-    // std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
         FixedPInt = (other).getRawBits();
     return (*this);
 }
 
-Fixed::~Fixed(){
-    // std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed(){}
 
 int Fixed::getRawBits(void) const {
     return (FixedPInt);
@@ -111,7 +102,7 @@ Fixed  Fixed::operator/(const Fixed& other){
 	Fixed ret;
 	if (other.FixedPInt == 0)
 		return (ret.setRawBits(INFINITY), ret);
-	ret.FixedPInt = ((this->FixedPInt / other.FixedPInt) << FractBits);
+	ret.FixedPInt = ((this->FixedPInt << FractBits) / other.FixedPInt);
 	return (ret);
 }
 
