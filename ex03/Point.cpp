@@ -47,16 +47,14 @@ Fixed Point::DeterminantTwoByTwo(Point const& a, Point const& b, Point const& p)
     float y1 = yb - ya;
     float x2 = xp - xa;
     float y2 = yp - ya;
-
     float result = x1 * y2 - x2 * y1;
-
-
     return Fixed(result);
 }
 
 bool Point::Inside(Fixed& B, Fixed& S , Fixed& P){
-    if ((B <= 0.f && S <= 0.f && P <= 0.f)
-        || (B >= 0.f && S >= 0.f && P >= 0.f))
+    Fixed other;
+    if ((B <= other && S <= other && P <= other)
+        || (B >= other && S >= other && P >= other))
         return (true);
     return (false);
 }
