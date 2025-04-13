@@ -13,14 +13,8 @@
 #include "Point.hpp"
 
 bool bsp(Point const a, Point const b, Point const c, Point const point){
-    Fixed eraGLoibal = Point::TriangleEra(a, b, c);
-    Fixed era1 = Point::TriangleEra(point, b, c);
-    Fixed era2 = Point::TriangleEra(a, point, c);
-    Fixed era3 = Point::TriangleEra(a, b, point);
-    std::cout << eraGLoibal.toFloat() << "\n";
-    std::cout << era1.toFloat() << "\n";
-    std::cout << era2.toFloat() << "\n";
-    std::cout << era3.toFloat() << "\n";
-    Fixed add(era1 + era2 + era3);
-    return (eraGLoibal == add);
+    Fixed B (Point::DeterminantTwoByTwo(a, b, point));
+    Fixed S (Point::DeterminantTwoByTwo(b, c, point));
+    Fixed P (Point::DeterminantTwoByTwo(c, a, point));
+    return (Point::Inside(B, S, P));
 }

@@ -22,6 +22,7 @@ Fixed::Fixed(const int integer):FixedPInt(integer << Fixed::FractBits){}
 
 Fixed::Fixed(const float floatingPoint){ 
     this->FixedPInt = roundf((floatingPoint * (1 << Fixed::FractBits)));
+	std::cout << "here  " << floatingPoint << "\n";
 }
 
 Fixed& Fixed::operator=(const Fixed& other){
@@ -41,7 +42,7 @@ void Fixed::setRawBits(int const raw){
 }
 
 float	Fixed::toFloat(void) const{
-	return (FixedPInt / (float)(1 << Fixed::FractBits));
+	return ((float)FixedPInt / (float)(1 << Fixed::FractBits));
 }
 
 int	Fixed::toInt(void) const{

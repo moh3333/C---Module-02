@@ -31,16 +31,17 @@ Fixed Point::getY() const{
     return (y);
 }
 
-Fixed Point::TriangleEra(Point const& a, Point const& b, Point const& c){
-    float x1 = a.getX().toFloat();
-    float y1 = a.getY().toFloat();
-    float x2 = b.getX().toFloat();
-    float y2 = b.getY().toFloat();
-    float x3 = c.getX().toFloat();
-    float y3 = c.getY().toFloat();
-
-    float determinant = ((x1 * (y2 - y3))) + x2 * (y3 - y1) + x3 * (y1 - y2);
-    std::cout << "here  "<< x2 << "\n";
-    return (Fixed(std::abs(determinant) / 2.0f));
+Fixed Point::DeterminantTwoByTwo(Point const& a, Point const& b, Point const& p){
+    float x1 = a.getX().toFloat() - b.getX().toFloat();
+    float y1 = a.getY().toFloat() - b.getY().toFloat();
+    float x2 = a.getY().toFloat() - p.getY().toFloat();
+    float y2 = a.getY().toFloat() - p.getY().toFloat();
+    return (Fixed((x1 * y2) - (x2 * y1)));
 }
 
+bool Point::Inside(Fixed& B, Fixed& S , Fixed& P){
+    if ((B.toFloat() < 0.f && S.toFloat() < 0.f && P.toFloat() < 0.f)
+        || (B.toFloat() > 0.f && S.toFloat() > 0.f && P.toFloat() > 0.f))
+        return (true);
+    return (false);
+}

@@ -23,7 +23,8 @@ public:
     ~Point();
     Fixed getX() const;
     Fixed getY() const;
-    static Fixed TriangleEra(Point const& a, Point const& b, Point const& c);
+    static Fixed DeterminantTwoByTwo(Point const& a, Point const& b, Point const& p);
+    static bool Inside(Fixed& B, Fixed& S , Fixed& P);
 };
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);
