@@ -6,7 +6,7 @@
 /*   By: mthamir <mthamir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 10:56:59 by mthamir           #+#    #+#             */
-/*   Updated: 2025/04/14 15:06:30 by mthamir          ###   ########.fr       */
+/*   Updated: 2025/04/14 17:30:44 by mthamir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ Fixed Point::DeterminantTwoByTwo(Point const& a, Point const& b, Point const& p)
 
 bool Point::Inside(Fixed& B, Fixed& S , Fixed& P){
     Fixed other;
-    if ((B <= other && S <= other && P <= other)
-        || (B >= other && S >= other && P >= other))
+    if ((B < other && S < other && P < other)
+        || (B > other && S > other && P > other))
         return (true);
     return (false);
 }
