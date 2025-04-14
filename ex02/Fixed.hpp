@@ -6,7 +6,7 @@
 /*   By: mthamir <mthamir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:43:40 by mthamir           #+#    #+#             */
-/*   Updated: 2025/04/11 18:30:49 by mthamir          ###   ########.fr       */
+/*   Updated: 2025/04/14 16:48:28 by mthamir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ public:
     ~Fixed();
     
 	Fixed&	operator=(const Fixed& other);
-    bool	operator>(const Fixed& other);
-    bool	operator<(const Fixed& other);
-    bool	operator>=(const Fixed& other);
-    bool	operator<=(const Fixed& other);
-    bool	operator==(const Fixed& other);
-    bool	operator!=(const Fixed& other);
+    bool	operator>(const Fixed& other) const;
+    bool	operator<(const Fixed& other) const;
+    bool	operator>=(const Fixed& other) const;
+    bool	operator<=(const Fixed& other) const;
+    bool	operator==(const Fixed& other) const;
+    bool	operator!=(const Fixed& other) const;
     Fixed	operator+(const Fixed& other);
     Fixed	operator-(const Fixed& other);
     Fixed	operator*(const Fixed& other);

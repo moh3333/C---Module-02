@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthamir <mthamir@student.42.fr>            #+#  +:+       +#+        */
+/*   By: mthamir <mthamir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-12 10:56:59 by mthamir           #+#    #+#             */
-/*   Updated: 2025-04-12 10:56:59 by mthamir          ###   ########.fr       */
+/*   Created: 2025/04/12 10:56:59 by mthamir           #+#    #+#             */
+/*   Updated: 2025/04/14 15:06:30 by mthamir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ Point::Point(const float& x_val, const float& y_val):x(Fixed(x_val)), y(Fixed(y_
 
 Point::Point(const Point& other):x(other.x), y(other.y){}
 
-Point&  Point::operator=(const Point& other){ 
+Point&  Point::operator=(const Point& other){
+
+	(void)other;
     return (*this); 
 }
 
@@ -36,19 +38,21 @@ const Fixed& Point::getY() const{
 }
 
 Fixed Point::DeterminantTwoByTwo(Point const& a, Point const& b, Point const& p) {
-    float xa = a.getX().toFloat();
-    float ya = a.getY().toFloat();
-    float xb = b.getX().toFloat();
-    float yb = b.getY().toFloat();
-    float xp = p.getX().toFloat();
-    float yp = p.getY().toFloat();
 
-    float x1 = xb - xa;
-    float y1 = yb - ya;
-    float x2 = xp - xa;
-    float y2 = yp - ya;
-    float result = x1 * y2 - x2 * y1;
-    return Fixed(result);
+    Fixed xa = a.getX();
+    Fixed ya = a.getY();
+    Fixed xb = b.getX();
+    Fixed yb = b.getY();
+    Fixed xp = p.getX();
+    Fixed yp = p.getY();
+
+    Fixed x1 = xb - xa;
+    Fixed y1 = yb - ya;
+    Fixed x2 = xp - xa;
+    Fixed y2 = yp - ya;
+    Fixed result = x1 * y2 - x2 * y1;
+
+    return (result);
 }
 
 bool Point::Inside(Fixed& B, Fixed& S , Fixed& P){

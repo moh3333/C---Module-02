@@ -6,7 +6,7 @@
 /*   By: mthamir <mthamir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:43:17 by mthamir           #+#    #+#             */
-/*   Updated: 2025/04/11 18:16:40 by mthamir          ###   ########.fr       */
+/*   Updated: 2025/04/14 14:33:20 by mthamir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void Fixed::setRawBits(int const raw){
     FixedPInt = raw;
 }
 
-float	Fixed::toFloat(void) const{
+float	Fixed::toFloat(void) const {
 	return (FixedPInt / (float)(1 << Fixed::FractBits));
 }
 

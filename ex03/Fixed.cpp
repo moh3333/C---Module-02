@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthamir <mthamir@student.42.fr>            #+#  +:+       +#+        */
+/*   By: mthamir <mthamir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-12 10:56:50 by mthamir           #+#    #+#             */
-/*   Updated: 2025-04-12 10:56:50 by mthamir          ###   ########.fr       */
+/*   Created: 2025/04/12 10:56:50 by mthamir           #+#    #+#             */
+/*   Updated: 2025/04/14 15:02:28 by mthamir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,27 @@ std::ostream& operator<<(std::ostream& strm, const Fixed& fixPoint){
 	return (strm);
 }
 
-bool  Fixed::operator>(const Fixed& other){
+bool  Fixed::operator>(const Fixed& other) const {
 	return (FixedPInt > other.FixedPInt); 
 }
 
-bool  Fixed::operator<(const Fixed& other){
+bool  Fixed::operator<(const Fixed& other) const {
 	return (FixedPInt < other.FixedPInt);
 }
 
-bool  Fixed::operator>=(const Fixed& other){
+bool  Fixed::operator>=(const Fixed& other) const {
 	return (FixedPInt >= other.FixedPInt);
 }
 
-bool  Fixed::operator<=(const Fixed& other){
+bool  Fixed::operator<=(const Fixed& other) const {
 	return (FixedPInt <= other.FixedPInt);
 }
 
-bool  Fixed::operator==(const Fixed& other){
+bool  Fixed::operator==(const Fixed& other) const {
 	return (FixedPInt == other.FixedPInt);
 }
 
-bool  Fixed::operator!=(const Fixed& other){
+bool  Fixed::operator!=(const Fixed& other) const{
 	return (FixedPInt != other.FixedPInt);
 }
 
@@ -99,7 +99,7 @@ Fixed  Fixed::operator/(const Fixed& other){
 	Fixed ret;
 	if (other.FixedPInt == 0)
 		return (ret.setRawBits(0), ret);
-	ret.FixedPInt = ((this->FixedPInt << FractBits)/ other.FixedPInt);
+	ret.FixedPInt = (this->FixedPInt / (float)other.FixedPInt) * (1 << FractBits);
 	return (ret);
 }
 
@@ -110,12 +110,14 @@ Fixed&  Fixed::operator++(void){
 
 Fixed  Fixed::operator++(int){
 	Fixed ret = *this;
-	this->FixedPInt += 1 ;
+	++(*this);
 	return (ret);
 }
 
 const Fixed&	Fixed::max(const Fixed& a, const Fixed& b){
-	if (a.FixedPInt > b.FixedPInt)
+	if (a > b)
 		return (a);
 	return (b);
 }
+
+// 3ndak tnsahom

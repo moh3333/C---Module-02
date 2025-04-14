@@ -2,7 +2,7 @@ NAME=BSP
 
 CC= c++ 
 
-CPPFLAGS= -std=c++98
+CPPFLAGS= -Wall -Wextra -Werror -std=c++98
 
 SRC= Fixed.cpp Point.cpp bsp.cpp main.cpp 
 

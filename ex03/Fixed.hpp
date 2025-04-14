@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthamir <mthamir@student.42.fr>            #+#  +:+       +#+        */
+/*   By: mthamir <mthamir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-12 10:56:53 by mthamir           #+#    #+#             */
-/*   Updated: 2025-04-12 10:56:53 by mthamir          ###   ########.fr       */
+/*   Created: 2025/04/12 10:56:53 by mthamir           #+#    #+#             */
+/*   Updated: 2025/04/14 15:00:07 by mthamir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ public:
     ~Fixed();
     
 	Fixed&	operator=(const Fixed& other);
-    bool	operator>(const Fixed& other);
-    bool	operator<(const Fixed& other);
-    bool	operator>=(const Fixed& other);
-    bool	operator<=(const Fixed& other);
-    bool	operator==(const Fixed& other);
-    bool	operator!=(const Fixed& other);
+    bool	operator>(const Fixed& other) const;
+    bool	operator<(const Fixed& other) const;
+    bool	operator>=(const Fixed& other) const;
+    bool	operator<=(const Fixed& other) const;
+    bool	operator==(const Fixed& other) const;
+    bool	operator!=(const Fixed& other) const;
     Fixed	operator+(const Fixed& other);
     Fixed	operator-(const Fixed& other);
     Fixed	operator*(const Fixed& other);

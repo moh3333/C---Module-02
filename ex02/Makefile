@@ -6,7 +6,7 @@
 #    By: mthamir <mthamir@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/11 18:11:03 by mthamir           #+#    #+#              #
-#    Updated: 2025/04/11 18:11:05 by mthamir          ###   ########.fr        #
+#    Updated: 2025/04/14 14:28:05 by mthamir          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME=Fixed
 
 CC= c++ 
 
-CPPFLAGS=  -std=c++98
+CPPFLAGS=  -Wall -Wextra -Werror -std=c++98
 
 SRC= Fixed.cpp main.cpp 
 

@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/mthamir/Desktop/C---Module-02/ex01",
-      "program": "/Users/mthamir/Desktop/C---Module-02/ex01/build/Debug/outDebug"
+      "cwd": "/Users/mthamir/Desktop/C---Module-02/ex02",
+      "program": "/Users/mthamir/Desktop/C---Module-02/ex02/build/Debug/outDebug"
     }
   ]
 }
