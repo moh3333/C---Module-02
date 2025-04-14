@@ -6,7 +6,7 @@
 /*   By: mthamir <mthamir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:43:40 by mthamir           #+#    #+#             */
-/*   Updated: 2025/04/14 16:48:28 by mthamir          ###   ########.fr       */
+/*   Updated: 2025/04/14 17:17:01 by mthamir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ public:
     void    setRawBits(int const raw);
     float   toFloat(void) const;
     int     toInt(void) const;
+	static Fixed&	min(Fixed& a, Fixed& b);
+	static const Fixed&	min(const Fixed& a, const Fixed& b);
+	static Fixed&	max(Fixed& a, Fixed& b);
 	static const Fixed&	max(const Fixed& a, const Fixed& b);
 };
 
